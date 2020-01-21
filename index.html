@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <!-- Head -->
 	<head>
 		<meta charset="UTF-8">
 		<title>Brad Smith</title>
-    <link rel="stylesheet" type="text/css" href="Stylesheet/sample_Portfolio.css">
+    <link rel="stylesheet" type="text/css" href="Stylesheet/portfolio.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./Stylesheet/Images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./Stylesheet/Images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./Stylesheet/Images/favicon-16x16.png">
+    <!-- This site has a little jQuery. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	</head>
 
 <!-- Body -->
@@ -16,23 +18,26 @@
 
 <!-- Navbar -->
 	<div class="Navbar">
-		<a class="active" href="#Home">Home</a> 
+    <a class="active" href="#Home">Home</a> 
+    <a href="#Slideshow">Slideshow</a> <!-- New Section-->
 		<a href="#About">About</a>
 		<a href="#GitHub">GitHub</a>
-		<a href="#Contact">Contact</a>
-	</div>
+		<a onclick="openForm()">Contact</a> <!-- This makes it so that our openForm function runs when we click Contact on the nav bar. -->
+  </div>
+<!-- END Navbar -->
 
 <!-- Home -->
+  <div id="Home">
 		<br> <!-- Breaks inserted to add space between navbar and first heading -->
 		<br>
 
-<!-- Video -->
-	<div id="Home">
+  <!-- Video -->
 		<video autoplay muted loop id="Typing_Video"> <!-- Makes the video play automatically, on a loop and with no sound -->
 			<source src="Stylesheet/Video/Typing.mp4" type="video/mp4"> 
-			Your browser does not support HTML5 video. <!-- Display message if video fails to run -->
+			  Your browser does not support HTML5 video. <!-- Display message if video fails to run -->
 		</video>
-	</div>
+  </div>
+<!-- END Home -->
 
 <!-- Video text --> 
 	<div class="Video_Text"> 
@@ -51,19 +56,77 @@
 					</center>	
 				</strong>
 			</p> 
-	</div>
+  </div>
+<!-- END Video text -->
+  
+<!-- Slideshow section -->
+  <div id="Slideshow">
+    <div id="Slideshow_Background">
+      <div id="Slideshow_Container">
+
+        <div class="mySlides fade">
+          <div class="Slide_Number">1 / 5</div>
+            <img class="Slide_Show_Images" src="./Stylesheet/Images/Brad_Smith.jpeg" 
+              style="width:100%; height:39.5vw; object-fit:cover;object-position: 0% 27.5%;">
+              <div class="text">I'm available to assist you on your project!</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="Slide_Number">2 / 5</div>
+            <img class="Slide_Show_Images" src="./Stylesheet/Images/HTML_CSS_and_JavaScript.jpeg" style="width:100%">
+              <div class="text">I am a full-stack software developer, <br> trained in:<br>HTML, CSS, JavaScript,</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="Slide_Number">3 / 5</div>
+            <img class="Slide_Show_images" src="./Stylesheet/Images/Python.png" style="width:100%">
+              <div class="text">the popular programming languare Python,</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="Slide_Number">4 / 5</div>
+            <img class="Slide_Show_Images" src="./Stylesheet/Images/SQL_and_Database.jpg" style="width:100%">
+              <div class="text">back end development, databases, and SQL.</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="Slide_Number">5 / 5</div>
+            <img class="Slide_Show_Images" src="./Stylesheet/Images/Coding_1.jpg" style="width:100%">
+              <div class="text">
+                <a onckick="openForm()" href="#Contact" style="color:white;">Contact me now!</a>
+              </div>
+        </div>
+
+          <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+
+      </div>
+      <br>
+
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+
+      </div>
+    </div>
+  </div>
+<!-- END Slideshow section -->
 
 <!-- About section -->
 	<div class="Row" id="About"> 
 		<div class="Column_2"> <!-- Left column -->
-			<img src="Stylesheet/Images/Development.jpg" alt="Laptop">
+      <img src="Stylesheet/Images/Coding_1.jpg" alt="Laptop and Phone">
 		</div>
   
 		<div class="Column_1"> <!-- Right column -->
-			<h1>About</h2>
+			<h1>About</h1>
 				<p>I am a software developer who loves to code! <br><br>I have a B.S. in Computer Science from <a href="https://spu.edu" target="_blank">Seattle Pacific University</a>. Also, I am a graduate of <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>’s Software Developer Boot Camp, and trained and experienced in the following web and programming languages: HTML, CSS, JavaScript, SQL, Python and more. <br><br>I am a full-stack developer and would love to work with you on your project. <a href="#Contact">Contact</a> me below!</p>
 		</div>
-	</div>
+  </div>
+<!-- END About section -->
 
 <!-- GitHub section -->
 	<div class="Row" id="GitHub">
@@ -76,35 +139,43 @@
 		<div class="Column_2"> <!-- Right column -->
 			<a href="https://github.com/bradleydavidsmith/" target="_blank"><img src="Stylesheet/Images/GitHub.png" alt="GitHub"></a>
 		</div>
-	</div>
+  </div>
+<!-- END GitHub section -->
 
-<!-- Contact section -->
-	<div class="Row" id="Contact"> 
-		<div class="Column_3"> <!-- Contact image, left column -->
-			<img src="Stylesheet/Images/Contact.jpg" alt="Contact_Image">
-		</div>
-	
-		<div class="Column_1"> <!-- Contact form, right "column" -->
-			<h1>Contact</h2> 
-				<form action="" method="get"> <!-- This specifies where to send the form data and how; it is left blank -->
-					<label>Name:</label>
-						<input type="text" placeholder="Please enter your name here">
-					<label>Email:</label>
-						<input type="text" id="Email" name="Email" placeholder="Please enter your email here">
-					<label>Message:</label>
-						<input type="text" id="Message" name="Message" placeholder="Please write your message here">
-						<input type="submit" value="Submit">
-				</form>
-		</div>
-	</div>
-	
+<!-- Contact popup form -->
+  <div id="Contact">
+    <button class="Pop_Up_Button" onclick="openForm()">Contact</button>
+    
+    <div class="form-popup" id="myForm"> <!-- Contact form, right "column" -->
+      <form action="" method="POST" class="form-container"> <!-- This specifies where to send the form data and how; it is left blank -->
+        <h1>Contact</h1>
+        <label>Name</label>
+          <input type="text" name="name" placeholder="Please enter your name here" required>
+        <label>Phone</label>
+          <input type="tel" name="Phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Please enter your phone number here">
+        <label>Email</label>
+          <input type="text" name="Email" placeholder="Please enter your email here" required>
+        <label>Message</label>
+          <input type="text" name="Message" placeholder="Please write your message here">
+        
+        <button type="submit" class="btn submit">Submit</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      
+      </form>
+    </div>
+  </div>
+<!-- END Contact popup form -->
+
 <!-- Footer section -->
 	<footer>
 		<p>
 			<center>&copy Brad Smith,  <a href="https://github.com/bradleydavidsmith/">See more of Brad's work</a></center><br>
 		</p>
-	</footer>
+  </footer>
+<!-- END Footer section -->
 
-		</body>
+<!-- Add JavaScript here because some of the scripts require the DOM to be built to run. -->
+  <script src="JavaScript/portfolio.js"></script>
 
+	</body>
 </html>
